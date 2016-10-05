@@ -36,15 +36,6 @@ cacheSolve <- function(x, ...) {
         return(i)
     }
     data <- x$get()
-    if(dim(data)[1] != dim(data)[2]){ ## Checking if the matrix is a square matrix
-        return("Inverse can be computed only for square matrices.")
-    }
-    else if(anyNA(data)){ ## checking if the matrix has NAs
-        return("Inverse cannot be computed if there are NAs")
-    }
-    else if(is.character(data)){ ## checking if the matrix has NAs
-        return("Numeric matrix has to be provided for inverse computations")
-    }
     i <- solve(data, ...)
     x$setInverse(i)
     i
